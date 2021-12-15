@@ -9,14 +9,22 @@ export function Counter() {
   const dispatch = useDispatch()
 
   return (
-    <Stack direction='row' spacing={2}>
-        <Button variant='contained' color="success" onClick={() => dispatch(increment())}>
-          Incrementar
-        </Button>
-        <span>{count}</span>
-        <Button variant='contained' color='error' onClick={() => dispatch(decrement())}>
-          Decrementar
-        </Button>
+    <Stack direction="row" spacing={2}>
+      <Button
+        variant="contained"
+        color="success"
+        onClick={() => dispatch(increment())}
+      >
+        Incrementar
+      </Button>
+      <span>{count}</span>
+      <Button
+        variant="contained"
+        color="error"
+        onClick={() => dispatch(decrement())}
+      >
+        Decrementar
+      </Button>
     </Stack>
   )
 }

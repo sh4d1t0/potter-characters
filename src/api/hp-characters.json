@@ -1,6 +1,4 @@
-{
-  "characters":
-  [
+[
   {
     "name": "Harry Potter",
     "species": "human",
@@ -452,4 +450,3 @@
     "image": "http://hp-api.herokuapp.com/images/filch.jpg"
   }
 ]
-}

@@ -16,8 +16,8 @@ function App() {
             justifyContent: 'center',
             typography: 'body1',
             '& > :not(style) + :not(style)': {
-              ml: 2,
-            },
+              ml: 2
+            }
           }}
         >
           <Routes>
@@ -35,7 +35,9 @@ function Home() {
     <>
       <main>
         <nav>
-          <Link component={RouterLink} to="/about">About</Link>
+          <Link component={RouterLink} to="/about">
+            About
+          </Link>
         </nav>
         <h2>Welcome to the homepage!</h2>
         <img src={logo} className="App-logo" alt="logo" />
@@ -43,17 +45,29 @@ function Home() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Stack direction='row' divider={<Divider orientation="vertical" flexItem />} spacing={2}>
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" flexItem />}
+          spacing={2}
+        >
           <Link href="https://reactjs.org" underline="hover" target="_blank">
             {'Aprender React'}
           </Link>
           <Link href="https://redux.js.org/" underline="hover" target="_blank">
             {'Redux'}
           </Link>
-          <Link href="https://redux-toolkit.js.org/" underline="hover" target="_blank">
+          <Link
+            href="https://redux-toolkit.js.org/"
+            underline="hover"
+            target="_blank"
+          >
             {'Redux Toolkit'}
           </Link>
-          <Link href="https://react-redux.js.org/" underline="hover" target="_blank">
+          <Link
+            href="https://react-redux.js.org/"
+            underline="hover"
+            target="_blank"
+          >
             {'React Redux'}
           </Link>
         </Stack>
@@ -67,7 +81,9 @@ function About() {
     <>
       <main>
         <nav>
-          <Link component={RouterLink} to="/">Home</Link>
+          <Link component={RouterLink} to="/">
+            Home
+          </Link>
         </nav>
         <h2>Quienes Somos?</h2>
         <p>Se siente como una pregunta existencial, ¿No lo crees?</p>
