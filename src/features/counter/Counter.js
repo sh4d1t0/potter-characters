@@ -1,30 +1,82 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './counterSlice'
-import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  incrementAsync,
+  selectCount
+} from './counterSlice'
+import { Box, Button, Stack, TextField } from '@mui/material'
 
 export function Counter() {
-  const count = useSelector(state => state.counter.value)
+  const count = useSelector(selectCount)
   const dispatch = useDispatch()
+  const [incrementAmount, setIncrementAmount] = useState('2')
 
   return (
-    <Stack direction="row" spacing={2}>
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => dispatch(increment())}
+    <>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
       >
-        Incrementar
-      </Button>
-      <span>{count}</span>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={() => dispatch(decrement())}
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => dispatch(increment())}
+        >
+          +
+        </Button>
+        <span>{count}</span>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => dispatch(decrement())}
+        >
+          -
+        </Button>
+      </Stack>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
       >
-        Decrementar
-      </Button>
-    </Stack>
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '7ch' }
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="add-mount"
+            label="Monto"
+            variant="standard"
+            value={incrementAmount}
+            onChange={e => setIncrementAmount(e.target.value)}
+          />
+        </Box>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() =>
+            dispatch(incrementByAmount(Number(incrementAmount) || 0))
+          }
+        >
+          Agregar monto
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
+        >
+          Agregar asincronico
+        </Button>
+      </Stack>
+    </>
   )
 }

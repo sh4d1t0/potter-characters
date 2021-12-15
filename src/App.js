@@ -1,32 +1,26 @@
 import React, { Fragment } from 'react'
 import { Routes, Route, Link as RouterLink } from 'react-router-dom'
 import { Counter } from './features/counter/Counter'
-import { Box, Divider, Link, Stack } from '@mui/material'
+import { Divider, Grid, Link, Stack, Typography } from '@mui/material'
+import Character from './components/character/Character'
 import logo from './logo.svg'
 import './App.scss'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            typography: 'body1',
-            '& > :not(style) + :not(style)': {
-              ml: 2
-            }
-          }}
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-          </Routes>
-        </Box>
-      </header>
-    </div>
+    <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      className="App-header"
+    >
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="personajes" element={<Character />} />
+      </Routes>
+    </Grid>
   )
 }
 
@@ -39,14 +33,16 @@ function Home() {
             About
           </Link>
         </nav>
-        <h2>Welcome to the homepage!</h2>
+        <Typography variant="h4">Welcome to the homepage!</Typography>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
-        <p>
+        <Typography gutterBottom variant="body1" component="div">
           Edit <code>src/App.js</code> and save to reload.
-        </p>
+        </Typography>
         <Stack
           direction="row"
+          justifyContent="center"
+          alignItems="center"
           divider={<Divider orientation="vertical" flexItem />}
           spacing={2}
         >
