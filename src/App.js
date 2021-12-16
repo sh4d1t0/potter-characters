@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Routes, Route, Link as RouterLink } from 'react-router-dom'
 import { Counter } from './features/counter/Counter'
 import { Divider, Grid, Link, Stack, Typography } from '@mui/material'
-import Character from './components/character/Character'
+import Home from './components/Home/Home'
 import logo from './logo.svg'
 import './App.scss'
 
@@ -18,13 +18,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="personajes" element={<Character />} />
+        <Route path="test" element={<Test />} />
       </Routes>
     </Grid>
   )
 }
 
-function Home() {
+function Test() {
   return (
     <>
       <main>
