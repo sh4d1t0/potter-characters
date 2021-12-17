@@ -6,15 +6,15 @@ import { Grid } from '@mui/material'
 
 const CharacterList = () => {
   const characters = useSelector(getAllCharacters)
-  return (
-    <>
-      {characters.map((character, index) => (
-        <Grid key={index} item xs={12} md={6}>
-          <CharacterCard data={character} />
-        </Grid>
-      ))}
-    </>
-  )
+  let renderCharacters = ''
+
+  renderCharacters = characters.map((character, index) => (
+    <Grid key={index} item xs={12} md={6}>
+      <CharacterCard data={character} />
+    </Grid>
+  ))
+
+  return <>{renderCharacters}</>
 }
 
 export default CharacterList
