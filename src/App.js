@@ -1,26 +1,30 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Routes, Route, Link as RouterLink } from 'react-router-dom'
 import { Counter } from './features/counter/Counter'
-import { Divider, Grid, Link, Stack, Typography } from '@mui/material'
+import {
+  CssBaseline,
+  Container,
+  Divider,
+  Link,
+  Stack,
+  Typography
+} from '@mui/material'
 import Home from './components/Home/Home'
 import logo from './logo.svg'
 import './App.scss'
 
 function App() {
   return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      className="App-header"
-    >
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="test" element={<Test />} />
-      </Routes>
-    </Grid>
+    <React.Fragment>
+      <CssBaseline />
+      <Container fixed className="App-header">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="test" element={<Test />} />
+        </Routes>
+      </Container>
+    </React.Fragment>
   )
 }
 
