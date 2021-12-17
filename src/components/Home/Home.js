@@ -1,49 +1,25 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Modal,
-  Stack,
-  TextField,
-  Typography
-} from '@mui/material'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import getCharacters from '../../api/hp-charactersApi'
 import { setCharactersList } from '../../features/characters/charactersSlice'
 import CharacterList from '../character/CharacterList'
+import ModalComponent from '../../common/Modal/Modal'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt'
-import { useFormik } from 'formik'
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Grid,
+  Stack,
+  Typography
+} from '@mui/material'
 
 const Home = () => {
   const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4
-  }
-
-  const formik = useFormik({
-    initialValues: {
-      email: 'foobar@example.com',
-      password: 'foobar'
-    },
-    //validationSchema: validationSchema,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2))
-    }
-  })
 
   useEffect(() => {
     const fetchAllCharacters = async () => {
@@ -81,60 +57,26 @@ const Home = () => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Stack spacing={2} direction="row">
-          <Button
-            variant="outlined"
-            onClick={() => {
-              console.log('estudiantes')
-            }}
-          >
-            ESTUDIANTES
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={() => {
-              console.log('staff')
-            }}
-          >
-            STAFF
-          </Button>
-        </Stack>
-      </Grid>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <form onSubmit={formik.handleSubmit}>
-            <TextField
-              fullWidth
-              id="email"
-              name="email"
-              label="Email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
-            />
-            <TextField
-              fullWidth
-              id="password"
-              name="password"
-              label="Password"
-              type="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && formik.errors.password}
-            />
-            <Button color="primary" variant="contained" fullWidth type="submit">
-              Submit
+        <ButtonGroup variant="outlined" aria-label="outlined button group">
+          <Stack spacing={2} direction="row">
+            <Button
+              onClick={() => {
+                console.log('estudiantes')
+              }}
+            >
+              ESTUDIANTES
             </Button>
-          </form>
-        </Box>
-      </Modal>
+            <Button
+              onClick={() => {
+                console.log('staff')
+              }}
+            >
+              STAFF
+            </Button>
+          </Stack>
+        </ButtonGroup>
+      </Grid>
+      <ModalComponent open={open} handleClose={handleClose} />
       <CharacterList />
     </Grid>
   )
