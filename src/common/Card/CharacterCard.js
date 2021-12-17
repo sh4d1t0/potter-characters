@@ -61,7 +61,7 @@ const CharacterCard = props => {
               <Grid item xs={4}>
                 <Box sx={{ textAlign: 'right' }}>
                   <IconButton aria-label="favorite">
-                    <BookmarkIcon />
+                    <BookmarkIcon sx={{ color: '#333' }} />
                   </IconButton>
                 </Box>
               </Grid>
