@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import getCharacters from '../../api/hp-charactersApi'
-import { setCharactersList } from '../../features/characters/charactersSlice'
+import {
+  fetchAsyncCharacters,
+  removeCharacters
+} from '../../features/characters/charactersSlice'
 import CharacterList from '../character/CharacterList'
 import ModalComponent from '../../common/Modal/Modal'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
@@ -16,14 +18,11 @@ const Home = () => {
   const handleClose = () => setOpen(false)
 
   useEffect(() => {
-    const fetchAllCharacters = async () => {
-      const response = await getCharacters.get().catch(error => {
-        console.log('Error:', error)
-      })
-      dispatch(setCharactersList(response.data))
+    dispatch(fetchAsyncCharacters())
+    return () => {
+      dispatch(removeCharacters())
     }
-    fetchAllCharacters()
-  }, [])
+  }, [dispatch])
 
   return (
     <Grid

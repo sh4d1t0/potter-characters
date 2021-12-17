@@ -13,7 +13,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark'
 const CharacterCard = props => {
   const { data } = props
   return (
-    <Grid key={data.name} container justifyContent="center" alignItems="center">
+    <Grid container justifyContent="center" alignItems="center">
       {/* Si se agrega en CharacterList la propiedad lg, recuerda agregar lg={12} */}
       <Grid item xs={12} sm={8} md={10}>
         <Card sx={{ display: 'flex', borderRadius: '16px' }}>
