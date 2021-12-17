@@ -27,7 +27,6 @@ testem.log
 # public
 *.hot-update.js
 *.hot-update.json
-/public
 
 # yarn Integrity file
 .yarn-integrity
