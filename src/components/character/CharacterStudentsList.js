@@ -1,17 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getAllStaff } from '../../features/characters/charactersSlice'
+import { getAllStudents } from '../../features/characters/charactersSlice'
 import CharacterCard from '../../common/Card/CharacterCard'
 import { Grid } from '@mui/material'
 import Header from '../../common/Header/Header'
 
-const CharacterStaffList = () => {
-  const staff = useSelector(getAllStaff)
-  let renderStaff = ''
+const CharacterStudentsList = () => {
+  const students = useSelector(getAllStudents)
+  let renderStudents = ''
 
-  renderStaff = staff.map((staff, index) => (
+  renderStudents = students.map((students, index) => (
     <Grid key={index} item xs={12} md={6}>
-      <CharacterCard data={staff} />
+      <CharacterCard data={students} />
     </Grid>
   ))
 
@@ -24,9 +24,9 @@ const CharacterStaffList = () => {
       spacing={2}
     >
       <Header />
-      {renderStaff}
+      {renderStudents}
     </Grid>
   )
 }
 
-export default CharacterStaffList
+export default CharacterStudentsList
