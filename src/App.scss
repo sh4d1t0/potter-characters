@@ -1,3 +1,5 @@
+@import './common/Card/colors.scss';
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -10,9 +12,21 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #000000;
+  background-image: url('./images/Background.png');
+  /* Center and scale the image nicely */
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  /* Full height */
+  height: 100vh;
   color: white;
+}
+
+.harryPotterLogo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .App-link {
@@ -26,4 +40,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Slytherin {
+  background: $slytherin;
+  border-radius: 16px 0px 0px 16px;
+}
+.Gryffindor {
+  background: $gryffindor;
+  border-radius: 16px 0px 0px 16px;
+}
+.Ravenclaw {
+  background: $ravenclaw;
+  border-radius: 16px 0px 0px 16px;
+}
+.Hufflepuff {
+  background: $hufflepuff;
+  border-radius: 16px 0px 0px 16px;
 }
