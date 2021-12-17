@@ -9,9 +9,8 @@ const CharacterList = () => {
   return (
     <>
       {characters.map((character, index) => (
-        /* puede haber un lg={4} */
-        <Grid item xs={12} md={6}>
-          <CharacterCard key={index} data={character} />
+        <Grid key={index} item xs={12} md={6}>
+          <CharacterCard data={character} />
         </Grid>
       ))}
     </>
